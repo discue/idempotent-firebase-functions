@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/discue/idempotent-firebase-functions/compare/v0.1.0...v0.2.0) (2023-06-10)
+
+
+### Chores
+
+* **docs:** update readme ([e3bd31d](https://github.com/discue/idempotent-firebase-functions/commit/e3bd31db2eff4a51675162aedf6d82d3bb6e4cf4))
+* generate docs during releases ([e76d99b](https://github.com/discue/idempotent-firebase-functions/commit/e76d99ba29f4371b3aeb2751abf0af4d7e97f16b))
+
 ## 0.1.0 (2023-06-10)
 
 
