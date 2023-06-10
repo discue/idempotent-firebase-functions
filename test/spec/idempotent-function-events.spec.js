@@ -6,6 +6,10 @@ const { leaseResource, runOnlyIfLeaseIsNotActive, unleaseResource, verifyEventHa
 const { Firestore } = require("firebase-admin/firestore")
 const firestore = new Firestore()
 
+process.on('SIGTERM', () => {
+    firestore.terminate()
+})
+
 describe('IdempotentFunctionEvents', () => {
 
     describe('.runOnlyIfLeaseIsNotActive', () => {
