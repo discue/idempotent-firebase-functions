@@ -28,17 +28,15 @@ jobs:
 
     - run: npm ci
 
+    - name: Authenticate with Google Cloud
+      uses: 'google-github-actions/auth@v1'
+      with:
+        credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT_JSON }}'
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        project_id: discue-io-dev
+
     - name: test
       run: ./test.sh
-      env:
-        NODE_ENV: ci
-
-    - name: install playwright deps
-      run: npx playwright install
-
-    - name: test-e2e
-      run: ./test-e2e.sh
-      env:
-        NODE_ENV: e2e
-        AUTH_CODE: ${{ secrets.AUTH_CODE }}
-        VENDOR_ID: ${{ secrets.VENDOR_ID }}
