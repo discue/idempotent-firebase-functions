@@ -1,0 +1,48 @@
+{
+  "name": "@discue/idempotent-firebase-functions",
+  "author": "Stefan Pfaffel",
+  "license": "MIT",
+  "version": "0.0.1",
+  "description": "Implementation of idempotent functions for firebase to prevent duplicate execution of events.",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "exports": {
+    ".": "./lib/idempotent-functions.js"
+  },
+  "scripts": {
+    "test": "mocha test/spec/**/*.spec.js --check-leaks  --timeout 5000 --file test/global-mocha-setup.js",
+    "lint": "eslint -c .eslintrc.json lib",
+    "release": "standard-version && git push --follow-tags origin && npm publish",
+    "release-minor": "standard-version --release-as minor && git push --follow-tags origin && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/discue/idempotent-firebase-functions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/discue/idempotent-firebase-functions/issues"
+  },
+  "homepage": "https://github.com/discue/idempotent-firebase-functions#readme",
+  "keywords": [
+    "firebase",
+    "functions",
+    "google",
+    "gcp",
+    "idempotent",
+    "idempotency"
+  ],
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "documentation": "^14.0.2",
+    "eslint": "^8.42.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
+    "standard-version": "^9.5.0"
+  },
+  "optionalDependencies": {
+    "firebase-admin": "^11.9.0",
+    "firebase-tools": "^12.3.1"
+  }
+}
