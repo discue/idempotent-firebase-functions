@@ -12,7 +12,7 @@
     ".": "./lib/idempotent-functions.js"
   },
   "scripts": {
-    "test": "mocha test/spec/**/*.spec.js --check-leaks  --timeout 5000 --file test/global-mocha-setup.js",
+    "test": "mocha test/spec/**/*.spec.js --check-leaks  --timeout 5000 --file test/global-mocha-setup.js --project demo-dsq",
     "lint": "eslint -c .eslintrc.json lib",
     "push-incl-tags": "git push --follow-tags origin main",
     "publish-npm": "npm publish --access public",
