@@ -41,7 +41,7 @@
     "documentation": "^14.0.2",
     "eslint": "^8.55.0",
     "mocha": "^10.2.0",
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.0.2",
     "standard-version": "^9.5.0"
   },
   "optionalDependencies": {
