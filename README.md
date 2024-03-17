@@ -7,7 +7,7 @@
 <br/>
 <div align="center">
 
-[![GitHub tag](https://img.shields.io/github/tag/@discue/idempotent-firebase-functions?include_prereleases=&sort=semver&color=blue)](https://github.com/@discue/idempotent-firebase-functions/releases/)
+[![GitHub tag](https://img.shields.io/github/tag/discue/idempotent-firebase-functions?include_prereleases=&sort=semver&color=blue)](https://github.com/@discue/idempotent-firebase-functions/releases/)
 [![Latest Stable Version](https://img.shields.io/npm/v/@discue/idempotent-firebase-functions.svg)](https://www.npmjs.com/package/@discue/idempotent-firebase-functions)
 [![License](https://img.shields.io/npm/l/@discue/idempotent-firebase-functions.svg)](https://www.npmjs.com/package/@discue/idempotent-firebase-functions)
 <br/>
