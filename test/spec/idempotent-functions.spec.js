@@ -1,10 +1,10 @@
 const { expect } = require('chai')
-const { nanoid } = require('nanoid')
+const uuid = require('crypto').randomUUID
 const { idempotentFunction } = require('../../lib/index.js')
 
 describe('IdempotentFunction', () => {
     it('calls callback if event id has not been recorded', async () => {
-        const eventId = nanoid()
+        const eventId = uuid()
         let calls = 0
         const callback = idempotentFunction(() => {
             calls++
@@ -16,7 +16,7 @@ describe('IdempotentFunction', () => {
         expect(calls).to.equal(1)
     })
     it('can also deal with v2 functions event handler', async () => {
-        const eventId = nanoid()
+        const eventId = uuid()
         let calls = 0
         const callback = idempotentFunction(() => {
             calls++
@@ -36,7 +36,7 @@ describe('IdempotentFunction', () => {
             calls[eventId]++
         })
         for (let i = 0, n = 50; i < n; i++) {
-            const eventId = nanoid()
+            const eventId = uuid()
             await callback(null, { eventId })
             await callback(null, { eventId })
         }
@@ -46,7 +46,7 @@ describe('IdempotentFunction', () => {
         })
     })
     it('returns true if event id was already handled', async () => {
-        const eventId = nanoid()
+        const eventId = uuid()
         const callback = idempotentFunction(() => { })
         await callback(null, { eventId })
         const handled = await callback(null, { eventId })

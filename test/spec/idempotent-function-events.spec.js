@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { nanoid } = require('nanoid')
+const uuid = require('crypto').randomUUID
 const { idempotentFunctionLeases } = require('../../lib/index.js')
 const { leaseResource, runOnlyIfLeaseIsNotActive, unleaseResource, verifyEventHasNotBeenHandled } = idempotentFunctionLeases
 
@@ -15,12 +15,12 @@ describe('IdempotentFunctionEvents', () => {
     describe('.runOnlyIfLeaseIsNotActive', () => {
         it('returns the return value of the callback', async () => {
             const expected = '4815162342'
-            const result = await runOnlyIfLeaseIsNotActive(nanoid(), () => expected)
+            const result = await runOnlyIfLeaseIsNotActive(uuid(), () => expected)
             expect(result).to.equal(expected)
         })
         it('removes the lease afterward', async () => {
             const expected = '4815162342'
-            const result = await runOnlyIfLeaseIsNotActive(nanoid(), () => expected)
+            const result = await runOnlyIfLeaseIsNotActive(uuid(), () => expected)
             expect(result).to.equal(expected)
 
             const docs = await firestore.collection('_firestore_leases').listDocuments()
@@ -28,7 +28,7 @@ describe('IdempotentFunctionEvents', () => {
         })
         it('returns immediately if lease is active', async () => {
             const expected = '4815162342'
-            const identifier = nanoid()
+            const identifier = uuid()
 
             runOnlyIfLeaseIsNotActive(identifier, () => {
                 return new Promise((resolve) => {
@@ -44,12 +44,12 @@ describe('IdempotentFunctionEvents', () => {
     })
     describe('.verifyEventHasNotBeenHandled', () => {
         it('return true if event was not handled yet', async () => {
-            const id = nanoid()
+            const id = uuid()
             const handled = await verifyEventHasNotBeenHandled(id)
             expect(handled).to.be.true
         })
         it('returns false if it was handled', async () => {
-            const id = nanoid()
+            const id = uuid()
             let handled = await verifyEventHasNotBeenHandled(id)
             expect(handled).to.be.true
 
@@ -59,12 +59,12 @@ describe('IdempotentFunctionEvents', () => {
     })
     describe('.leaseResource', () => {
         it('return true if event was not handled yet', async () => {
-            const id = nanoid()
+            const id = uuid()
             const handled = await leaseResource(id)
             expect(handled).to.be.true
         })
         it('return false if event if lease is active', async () => {
-            const id = nanoid()
+            const id = uuid()
             let handled = await leaseResource(id)
             expect(handled).to.be.true
 
@@ -72,7 +72,7 @@ describe('IdempotentFunctionEvents', () => {
             expect(handled).to.be.false
         })
         it('return true if event lease has expired', async () => {
-            const id = nanoid()
+            const id = uuid()
             let handled = await leaseResource(id, 500)
             expect(handled).to.be.true
 
@@ -84,12 +84,12 @@ describe('IdempotentFunctionEvents', () => {
     })
     describe('.unleaseResource', () => {
         it('returns true if no lease was stored before', async () => {
-            const id = nanoid()
+            const id = uuid()
             const unleased = await unleaseResource(id)
             expect(unleased).to.be.true
         })
         it('returns true after event lease was deleted', async () => {
-            const id = nanoid()
+            const id = uuid()
             let handled = await leaseResource(id)
             expect(handled).to.be.true
 
