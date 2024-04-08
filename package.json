@@ -13,7 +13,7 @@
   },
   "scripts": {
     "test": "mocha test/spec/**/*.spec.js --check-leaks  --timeout 5000 --file test/global-mocha-setup.js --project demo-dsq",
-    "lint": "eslint -c .eslintrc.json lib",
+    "lint": "eslint -c .eslintrc.js lib",
     "push-incl-tags": "git push --follow-tags origin main",
     "publish-npm": "npm publish --access public",
     "update-docs": "bash -c ./release.sh",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "chai": "^4.3.10",
     "documentation": "^14.0.3",
-    "eslint": "^8.57.0",
+    "eslint": "^9.0.0",
     "mocha": "^10.4.0",
     "nanoid": "^5.0.6",
     "nodemon": "^3.1.0",
