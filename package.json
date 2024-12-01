@@ -41,7 +41,7 @@
     "documentation": "^14.0.3",
     "eslint": "^9.13.0",
     "mocha": "^10.8.2",
-    "nanoid": "^5.0.8",
+    "nanoid": "^5.0.9",
     "nodemon": "^3.1.7",
     "standard-version": "^9.5.0"
   },
