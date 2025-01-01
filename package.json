@@ -42,7 +42,7 @@
     "eslint": "^9.16.0",
     "mocha": "^10.8.2",
     "nanoid": "^5.0.9",
-    "nodemon": "^3.1.7",
+    "nodemon": "^3.1.9",
     "standard-version": "^9.5.0"
   },
   "optionalDependencies": {
