@@ -47,6 +47,6 @@
   },
   "optionalDependencies": {
     "firebase-admin": "^13.4.0",
-    "firebase-tools": "^14.2.2"
+    "firebase-tools": "^14.5.1"
   }
 }
