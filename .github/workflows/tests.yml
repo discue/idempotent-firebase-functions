@@ -18,15 +18,20 @@ jobs:
         node-version: [lts/*]
 
     steps:
-    - name: Git checkout
-      uses: actions/checkout@master
+      - name: Git checkout
+        uses: actions/checkout@master
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v6
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - run: npm ci
+      - uses: actions/setup-java@v5
+        with:
+          distribution: "temurin" # See 'Supported distributions' for available options
+          java-version: "25"
 
-    - name: test
-      run: ./test.sh
+      - run: npm ci
+
+      - name: test
+        run: ./test.sh
