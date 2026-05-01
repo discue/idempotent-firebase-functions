@@ -43,7 +43,7 @@
     "eslint": "^10.1.0",
     "globals": "^17.4.0",
     "mocha": "^11.7.4",
-    "nanoid": "^5.1.6",
+    "nanoid": "^5.1.11",
     "nodemon": "^3.1.14",
     "standard-version": "^9.5.0"
   },
