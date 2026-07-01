@@ -48,7 +48,7 @@
     "standard-version": "^9.5.0"
   },
   "optionalDependencies": {
-    "firebase-admin": "^13.10.0",
+    "firebase-admin": "^14.1.0",
     "firebase-tools": "^15.19.1"
   }
 }
